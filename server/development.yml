@@ -1,0 +1,10 @@
+version: '2'
+services:
+  api:
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/usr/src/app
+    environment:
+      NODE_ENV: development
+    entrypoint: ./scripts/docker/start-server.sh development

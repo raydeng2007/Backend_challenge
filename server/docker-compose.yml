@@ -1,0 +1,30 @@
+version: '2'
+services:
+  api:
+    image: api-server:latest
+    build:
+      context: .
+      dockerfile: ./config/docker/api-server.Dockerfile
+    container_name: coding-challenge-api-server
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: interview
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: developer
+    entrypoint: ./scripts/docker/start-server.sh
+
+  db:
+    image: coding-challenge-database:latest
+    build:
+      context: .
+      dockerfile: ./config/docker/postgres.Dockerfile
+    ports:
+      - '5433:5432'
+    container_name: coding-challenge-database
+    environment:
+      POSTGRES_USER: developer
+      POSTGRES_DB: interview

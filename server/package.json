@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "coding challenge api server",
+  "main": "index.js",
+  "scripts": {
+    "psql:dev": "psql -h 0.0.0.0 -d interview -U developer -p 5433",
+    "docker": "mkdir -p node_modules && docker-compose -f docker-compose.yml -f development.yml up",
+    "test": "npx jest --config=.jestrc.json",
+    "populate-db": "node scripts/one-time/populate-db.js",
+    "migration-cli": "node db/scripts/migration-cli.js",
+    "migrations": "node db/scripts/run-migrations.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clutchcanada/coding-challenge.git"
+  },
+  "keywords": [
+    "clutch"
+  ],
+  "author": "Clutch Canada Development",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/clutchcanada/coding-challenge/issues"
+  },
+  "homepage": "https://github.com/clutchcanada/coding-challenge#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^22.4.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "1.19.0",
+    "cors": "2.8.1",
+    "es6-promisify": "^6.0.2",
+    "express": "4.15.2",
+    "moment": "^2.24.0",
+    "morgan": "1.8.1",
+    "pg": "^6.1.5",
+    "ramda": "^0.27.0",
+    "sequelize": "4.15.2",
+    "umzug": "^2.0.1",
+    "winston": "^3.2.1",
+    "winston-cloudwatch": "^2.3.0",
+    "winston-daily-rotate-file": "^4.4.2"
+  }
+}

@@ -1,0 +1,12 @@
+# Files
+.dockerignore
+.gitignore
+config/docker/*.Dockerfile
+README.md
+docker-compose.yml
+
+# Folders
+.git
+coverage
+jest
+jest_0
